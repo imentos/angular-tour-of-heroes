@@ -1,5 +1,7 @@
 pipeline {
     agent any
+  
+    tools {nodejs "nodejs"}
 
     options {
         buildDiscarder(logRotator(daysToKeepStr: '10', numToKeepStr: '10'))
