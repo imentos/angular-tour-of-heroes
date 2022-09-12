@@ -14,20 +14,20 @@ pipeline {
     stages {
         stage('Requirements') {
             steps {
-                dir("${env.WORKSPACE}/Ch05/05_02-publish-reports"){
-                    sh 'python3 -m venv venv'
-                    sh './venv/bin/pip3 install --upgrade --requirement requirements.txt'
-                }
+//                 dir("${env.WORKSPACE}/Ch05/05_02-publish-reports"){
+                    sh 'npm install'
+//                     sh './venv/bin/pip3 install --upgrade --requirement requirements.txt'
+//                 }
             }
         }
-        stage('Lint') {
-            steps {
-                dir("${env.WORKSPACE}/Ch05/05_02-publish-reports"){
-                    sh 'venv/bin/flake8 --ignore=E501,E231 *.py'
-                    sh 'venv/bin/pylint --errors-only --disable=C0301 --disable=C0326 *.py'
-                }
-            }
-        }
+//         stage('Lint') {
+//             steps {
+//                 dir("${env.WORKSPACE}/Ch05/05_02-publish-reports"){
+//                     sh 'venv/bin/flake8 --ignore=E501,E231 *.py'
+//                     sh 'venv/bin/pylint --errors-only --disable=C0301 --disable=C0326 *.py'
+//                 }
+//             }
+//         }
         stage('Test') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_02-publish-reports"){
